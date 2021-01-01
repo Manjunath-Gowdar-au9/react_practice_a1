@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component, Fragment } from "react";
+import UserInput from "./Components/UserInput";
+import UserOutput from "./Components/UserOutput";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    userName: "max  ",
+  };
+
+  inputChangeHandler = (event) => {
+    console.log(event)
+    this.setState({
+      userName: event.target.value,
+    });
+  };
+  render() {
+    return (
+      <Fragment>
+        <center>
+          <UserInput changed={this.inputChangeHandler} />
+          <UserOutput userName={this.state.userName} />
+        </center>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
