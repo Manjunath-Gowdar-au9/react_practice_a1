@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <Fragment>
         <center>
-          <UserInput changed={this.inputChangeHandler} />
+          <UserInput changed={this.inputChangeHandler} value={this.state.userName} />
           <UserOutput userName={this.state.userName} />
         </center>
       </Fragment>
